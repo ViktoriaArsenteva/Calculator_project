@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class App extends JFrame{
     public float result = 0;
+
     public float calc(String operation,float x1, float x2){
         float res = 1;
         if (operation == "+") res = x1 + x2;
@@ -32,6 +33,7 @@ public class App extends JFrame{
         }
         return res;
     }
+    
     public App(){
         setTitle("Калькулятор");
         JPanel buttons = new JPanel();
@@ -40,7 +42,15 @@ public class App extends JFrame{
         JTextField x1 = new JTextField(4);
         JTextField x2 = new JTextField(4);
         String operations[] = new String[]{"+", "-", "*", "/","°","!","√"};
+        JMenu menu = new JMenu("File");
+        JMenuItem exit = new JMenuItem("exit");
+        menu.add(exit);
+        JMenuItem exit2 = new JMenuItem("exit");
+        menu.add(exit2);
         
+        
+
+
         for (int i = 0; i<operations.length;i++){
             JButton oper = new JButton(operations[i]);
             oper.setPreferredSize(new Dimension(100,50));
@@ -75,6 +85,7 @@ public class App extends JFrame{
         mainPanel.add(x2);
         mainPanel.add(res);
         mainPanel.add(buttons);
+        mainPanel.add(menu);
         
         setPreferredSize(new Dimension(400,400));
         setVisible(true);
